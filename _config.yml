@@ -9,7 +9,6 @@ logo: ""
 # Site configurations
 feed:
   path: atom.xml
-excerpt_separator: <!--more-->
 paginate: 10 # amount of posts to show
 paginate_path: "/blog/page:num"
 permalink: /blog/:year/:month/:day/:title
