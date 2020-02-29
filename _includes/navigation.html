@@ -1,0 +1,17 @@
+<input type="checkbox" class="nav-checkbox" id="nav-checkbox">
+
+<nav id="navigation" class="navigation">
+    {% assign links = site.data.navigation %}
+    {% for link in links %}
+    <div class="nav-list-item {% if page.url == link.url %}active{% endif %}">
+        <a href="{{ link.url }}">{{ link.title }}</a>
+    </div>
+    {% if link.sublinks %}
+    {% for sublink in link.sublinks %}
+    <div class="nav-list-item sub-nav-list-item {% if page.url == sublink.url %}active{% endif %}">
+        <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+</nav>

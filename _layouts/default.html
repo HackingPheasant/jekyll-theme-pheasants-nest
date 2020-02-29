@@ -1,0 +1,28 @@
+---
+---
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>
+      {% if page.title == "Home" %}
+        {{ site.title }} &middot; {{ site.tagline }}
+      {% else %}
+        {{ page.title }} &middot; {{ site.title }}
+      {% endif %}
+    </title>
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    {% feed_meta %}
+    {% seo %}
+  </head>
+  <body>
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {% include navigation.html %}
+        {{ content }}
+      </div>
+    </main>
+  </body>
+</html>
