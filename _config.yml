@@ -26,6 +26,7 @@ author:
   bio: "I am an **amazing** person."
   contact:
     email: "youremail@protonmail.com"
+  social:
     twitter: username
     github:  username
 

@@ -1,12 +1,16 @@
 /* Variables */
+@import "variables.scss";
 
 /* Mixins and functions */
 
 /* Core CSS */
 
 /* Components */
+@import "navigation.scss";
 @import "syntax-styles.scss";
 
 /* Utility classes */
+@import "utilities.scss";
 
 /* Layout specific */
+@import "print.scss";
