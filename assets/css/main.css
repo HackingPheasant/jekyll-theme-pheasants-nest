@@ -1,0 +1,104 @@
+/* Import css */
+@import "syntax-highlighting.css";
+@import "print.css" print;
+
+/* Base html element styling and Global Variables */
+html { 
+    box-sizing: border-box;
+    line-height: 1.15;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+:root {
+    -moz-tab-size: 4;
+    tab-size: 4;
+    /* Global Variables */
+    --icon-orange: #f66a0a;
+    --icon-grey: #828282;
+    --nav-color: #6a9fb5;
+}
+
+
+body {
+    margin: 0; 
+}
+
+main {
+    display: block; 
+}
+
+a {
+    background-color: transparent;
+}
+
+img {
+    border-style: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+/* Header and Navigation */ 
+body {
+    margin: 0;
+}
+
+.site-header {
+    background-color: var(--nav-color);
+    overflow: hidden;
+}
+
+.navigation {
+    background-color: var(--nav-color);
+}
+
+.nav-list-item a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.sub-nav-list-item {
+    padding-left: 20%;
+}
+
+/* SVG Related */
+.icon-orange {
+  color: var(--icon-orange);
+}
+
+.icon-grey {
+  color: var(--icon-grey);
+}
+
+.svg-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  fill: currentColor;
+  padding: 5px 3px 2px 5px;
+  vertical-align: text-bottom;
+}
+
+/* Responsive Video Resize */
+
+.embed-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+        max-width: 100%;
+}
+
+.embed-container iframe, .embed-container object, .embed-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

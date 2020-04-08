@@ -1,5 +1,15 @@
 <header class="site-header">
-  <nav id="navigation" class="navigation">
+    <h1><a href="/">{{ site.title }}</a></h1>
+    <small>{{ site.tagline }}</small>
+
+    <input type="checkbox" class="open-navigation" id="open-navigation">
+    <label for="open-navigation" class="navigation-toggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
+
+    <nav id="navigation" class="navigation">
       {% assign links = site.data.navigation %}
       {% for link in links %}
       <div class="nav-list-item">
