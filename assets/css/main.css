@@ -52,11 +52,8 @@ header, nav {
     padding-bottom: 8px;
 }
 
-main, aside, footer {
+main, footer {
     margin-left: 8px;
-}
-aside {
-    margin-top: 8px;
 }
 
 /*@media (min-width: 40em) { */
