@@ -5,8 +5,9 @@
   {%- include head.html -%}
   <body>
     {%- include header.html -%}
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
+    {%- include navigation.html -%}
+    {%- include social.html displaynames="true" -%}
+    <main aria-label="Content">
         {{ content }}
       </div>
     </main>

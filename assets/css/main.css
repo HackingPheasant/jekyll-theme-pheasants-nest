@@ -2,7 +2,7 @@
 @import "syntax-highlighting.css";
 @import "print.css" print;
 
-/* Base html element styling and Global Variables */
+/* Global Variables and Changes */
 html { 
     box-sizing: border-box;
     line-height: 1.15;
@@ -23,9 +23,37 @@ html {
     --nav-color: #6a9fb5;
 }
 
+/* CSS Grid Setup and Layout */
 
+/* Lets name the areas */
+header { grid-area: header; }
+nav { grid-area: nav; }
+.social-media-list{ grid-area: followme; }
+main { grid-area: main; }
+footer { grid-area: footer; }
+
+/* Body will be our container */
+/* Mobile First layout */
 body {
-    margin: 0; 
+    min-height: 100vh;
+    display: grid;
+    grid-gap: 1em;
+    grid: 'header' auto
+          'nav' auto
+          'followme' auto
+          'main' 1fr
+          'footer' auto
+          / 1fr;
+    margin: 0;
+}
+
+@media (min-width: 40em) {
+  body {
+    grid: 'header nav' auto
+          'followme main' 1fr
+          'followme footer' auto
+        / 12em 1fr;
+  }
 }
 
 main {
@@ -38,17 +66,15 @@ a {
 
 img {
     border-style: none;
+    width: 100%;
+    height: auto;
 }
 
 [hidden] {
-  display: none;
+    display: none;
 }
 
 /* Header and Navigation */ 
-body {
-    margin: 0;
-}
-
 .site-header {
     background-color: var(--nav-color);
     overflow: hidden;
@@ -56,6 +82,7 @@ body {
 
 .navigation {
     background-color: var(--nav-color);
+    overflow: hidden;
 }
 
 .nav-list-item a {
@@ -64,7 +91,7 @@ body {
 }
 
 .sub-nav-list-item {
-    padding-left: 20%;
+    padding-left: 1em;
 }
 
 /* SVG Related */
@@ -77,12 +104,21 @@ body {
 }
 
 .svg-icon {
-  width: 16px;
-  height: 16px;
+  box-sizing: initial;
+  width: 1.5rem;
+  height: 1.5rem;
   display: inline-block;
   fill: currentColor;
   padding: 5px 3px 2px 5px;
-  vertical-align: text-bottom;
+  vertical-align: middle;
+}
+
+.social-media-list a {
+  text-decoration: none;
+}
+
+footer .social-media-list div {
+    display: inline;
 }
 
 /* Responsive Video Resize */
