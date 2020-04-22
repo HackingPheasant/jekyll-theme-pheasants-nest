@@ -4,7 +4,9 @@
 
 /* Global Variables and Box Sizing */
 /* Box sizing trick: https://css-tricks.com/box-sizing/#article-header-id-3 */
-html { 
+html {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box; 
     box-sizing: border-box;
     line-height: 1.15;
 }
