@@ -1,30 +1,21 @@
-<footer class="footer">
-    <div class="footer-col-wrapper">
-      <div class="footer-col">
-        <p class="feed-subscribe">
-          <a href="{{ 'atom.xml' | relative_url }}">
-            <svg class="svg-icon icon-orange">
-                <use href="{{ '/assets/images/icons/simple-icons.svg#rss' | relative_url }}"></use>
-            </svg><span>Subscribe</span>
-          </a>
-        </p>
-      {%- if site.author %}
-        <div class="contact-list">
-          {% if site.author.name -%}
-            <div class="p-name">{{ site.author.name | escape }}</div>
-          {% endif -%}
-          {% if site.author.email -%}
-            <div><a class="u-email" href="mailto:{{ site.author.contact.email }}">{{ site.author.contact.email }}</a></div>
-          {%- endif %}
-        </div>
-      {%- endif %}
-      </div>
-      <div class="footer-col">
-        <p>{{ site.description | escape }}</p>
-      </div>
-    </div>
-
-    <div class="social-links">
-      {%- include social.html -%}
-    </div>
+<footer>
+  <p class="feed-subscribe">
+    <a href="{{ 'atom.xml' | relative_url }}">
+      <svg class="svg-icon icon-orange">
+        <use href="{{ '/assets/images/icons/simple-icons.svg#rss' | relative_url }}"></use>
+      </svg><span>Subscribe</span>
+    </a>
+  </p>
+  {%- if site.author %}
+  <div class="contact-list">
+    {% if site.author.name -%}
+    <p class="author-name">{{ site.author.name | escape }}</p>
+    {% endif -%}
+    {% if site.author.email -%}
+    <p><a class="author-email" href="mailto:{{ site.author.contact.email }}">{{ site.author.contact.email }}</a></p>
+    {%- endif %}
+  </div>
+  {%- endif %}
+  <p>{{ site.description | escape }}</p>
+  {%- include social.html -%}
 </footer>

@@ -1,115 +1,176 @@
-/* Import css */
 @import "syntax-highlighting.css";
 @import "print.css" print;
 
-/* Global Variables and Box Sizing */
-/* Box sizing trick: https://css-tricks.com/box-sizing/#article-header-id-3 */
-html {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box; 
-    box-sizing: border-box;
-    line-height: 1.15;
-}
+/* Notes:
+ * Layout is handled by CSS Grid.
+ * We Break it into a 3 column layout
+ * With it being mobile first and expanding outwards
+ * as the screensize gets bigger
+ *
+ * There is also a Light/Dark Colorscheme toggle.
+ * It checks userprefence, can manually toggle it.
+ * With JS preference is saved, without JS the preference isnt saved
+ */
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 :root {
-    /* Global Variables */
-    --icon-orange: #f66a0a;
-    --icon-grey: #828282;
-    --nav-color: #6a9fb5;
+  /* Light Color Scheme */
+  --primary-color: #6A9FB5; /* Hippie-Blue */
+  --secondary-color: #E4E4E4;
+  --font-color: #1E1E1E;
+  --font-color-alt: #141414;  
+  --bg-color: #F8FAFB;
+  --icon-orange: #F66A0A;
+  --icon-grey: #828282;
 }
 
-/* CSS Grid Setup and Layout */
-/* Lets name the areas */
-header { grid-area: header; }
-nav { grid-area: nav; }
-.social-media-list{ grid-area: followme; }
-main { grid-area: main; }
-footer { grid-area: footer; }
+/* Handle the colorscheme by checking user prefences */
+@media (prefers-color-scheme: light) {
+  .light {
+    display: none;
+  }
+}
 
-/* Body will be our container */
-/* Mobile First layout */
+@media (prefers-color-scheme: dark) {
+  .dark {
+    display: none;
+  }
+  /* Dark Color Scheme */
+  --primary-color: "#9A97F3";
+  --secondary-color: "#818cab";
+  --font-color: "#E1E1FF";
+  --font-color-alt: ""#818CAB;
+  --bg-color: "#161625";
+  --icon-orange: "#F66A0A";
+  --icon-gray: "#828282";
+
+}
+
+html {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
 body {
-    min-height: 100vh;
-    width: 100%;
-    display: grid;
-    grid-gap: 0;
-    grid: 'header'
-          'nav'
-          'followme'
-          'main'
-          'footer';
-    margin: 0;
+  /* width: 100vw; */
+  max-width: 100vw;
+  display: grid;
+  grid-gap: 0;
+  grid-template-areas:
+    'header'
+    'nav'
+    'followme'
+    'main'
+    'footer';
+  margin: 0;
+  font-size: calc(1em + 0.1vw);
+  line-height: calc(1.1em + 0.5vw);
+  background-color: var(--bg-color);
 }
 
-header, nav {
-    padding-left: 8px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+header {
+  grid-area: header;
+  padding: 8px;
+  background-color: var(--primary-color);
+  min-width: 12rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
-main, footer {
-    margin-left: 8px;
-    margin-right: 8px;
+.header-title {
+  width: 100%;
+  text-align: center;
 }
 
-/* 1024px */
-@media (min-width: 64em) {
-  body {
-    grid-gap: 1em 0;
-    grid: 'header nav' auto
-          'followme main' 1fr
-          'followme footer' auto
-        / 12em 1fr;
-  }
+.header-tagline {
+  width: 100%;
+  text-align: center;
+}
 
-  main, aside, footer {
-      margin: 0;
-  }
+nav {
+  grid-area: nav;
+  padding: 8px;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
 
+.social-media-list{
+  grid-area: followme;
+  min-width: 12rem;
 }
 
 main {
-    display: block; 
+  grid-area: main;
+  margin: 0 8px 0 8px;
 }
 
-a {
-    background-color: transparent;
+footer {
+  grid-area: footer;
+  margin: 0 8px 0 8px;
+}
+
+h1 {
+  font-size: calc(1.5rem + 1.1vw);
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+
+h1, h2 {
+  font-weight: bold;
+}
+
+h1, h2, p {
+  margin: .5em 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--font-color-alt);
+}
+
+p {
+  color: var(--font-color);
 }
 
 img {
-    border-style: none;
-    width: 100%;
-    height: auto;
+  border-style: none;
+  width: 100%;
+  height: auto;
 }
 
 pre {
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  max-width: 100vw;
+  overflow-x: auto;
 }
 
 [hidden] {
-    display: none;
+  display: none;
 }
 
 /* Header and Navigation */ 
-.site-header, .navigation {
-    background-color: var(--nav-color);
-}
-
 .nav-list-item a {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .sub-nav-list-item {
-    padding-left: 1em;
+  /* padding-left: 1em; */
 }
 
 /* SVG Related */
@@ -136,23 +197,63 @@ pre {
 }
 
 footer .social-media-list div {
-    display: inline;
+  display: inline;
 }
 
 /* Responsive Video Resize */
 
 .embed-container {
-	position: relative;
-	padding-bottom: 56.25%;
-	height: 0;
-	overflow: hidden;
-        max-width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .embed-container iframe, .embed-container object, .embed-container embed {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive Design Layouts Breakpoints
+ * Size         	Resolution      Breakpoint
+ * Small 	        0 - 600px       default
+ * Medium-small 	600 - 900px     min: 37.5em
+ * Medium        	900 - 1200px    min: 56.25em
+ * Large 	        1200 - 1800     min: 75em
+ * Extra Large 	        1800 - ~        min: 112.5em
+ */
+@media only screen and (min-width: 37.5em) {
+
+}
+
+@media only screen and (min-width: 56.25em) {
+  body {
+    grid-gap: 1em 0;
+    grid-template-columns: 1fr 1fr 3fr;
+    grid-template-areas:
+      'header header nav nav nav'
+      'followme main main main main'
+      'footer footer footer footer footer' ;
+  }
+
+  .social-media-list {
+    grid-column: unset;
+  }
+  
+  main, aside, footer {
+    margin: 0;
+  }
+}
+
+
+@media only screen and (min-width: 75em) {
+
+}
+
+@media only screen and (min-width: 112.5em) {
+
 }
