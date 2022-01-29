@@ -1,3 +1,7 @@
+THIS REPO HAS BEEN ARCHIVED
+Reasons: Has been merged into [HackingPheasants.github.io](https://github.com/HackingPheasant/HackingPheasant.github.io)
+Any potential future developments can be found at the above link.
+
 ## Build Site Locally
 ```bash
 $ bundle exec jekyll serve
